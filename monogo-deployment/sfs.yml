@@ -25,11 +25,6 @@ spec:
         env:
         - name: MONGO_SIDECAR_POD_LABELS
           value: "app=mongo"
-  volumeClaimTemplates:
-  - metadata:
-      name: mongo-datastore
-    spec:
-      accessModes: ["ReadWriteOnce"]
-      resources:
-        requests:
-          storage: 1Gi
+      volumes:
+      - name: mongo-datastore
+        emptyDir: {}
