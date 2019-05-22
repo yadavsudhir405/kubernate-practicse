@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-svc-ext
+  labels:
+    name: mongo-clinet
+spec:
+  type: NodePort
+  ports:
+    - port: 27017
+      name: mongo-clinet
+      nodePort: 30017
+      protocol: TCP
+  selector:
+    app: mongo
