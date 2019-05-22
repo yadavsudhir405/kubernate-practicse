@@ -4,7 +4,7 @@ metadata:
   name: mongo-statful-set
 spec:
   serviceName: "mongo-svc"
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -27,4 +27,5 @@ spec:
           value: "app=mongo"
       volumes:
       - name: mongo-datastore
-        emptyDir: {}
+        hostPath:
+          path: /var/lib/my-data
